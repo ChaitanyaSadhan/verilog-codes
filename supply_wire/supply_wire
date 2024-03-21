@@ -1,0 +1,73 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x128608f20 .scope module, "supply_wire_tb" "supply_wire_tb" 2 1;
+ .timescale 0 0;
+v0x12861e470_0 .var "A", 2 0;
+v0x12861e530_0 .net "f", 0 0, L_0x12861e930;  1 drivers
+L_0x12861ea90 .part v0x12861e470_0, 2, 1;
+L_0x12861eb70 .part v0x12861e470_0, 1, 1;
+L_0x12861ec90 .part v0x12861e470_0, 0, 1;
+S_0x128609090 .scope module, "uut" "supply_wire" 2 6, 3 1 0, S_0x128608f20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "f";
+L_0x12861e660 .functor BUFT 1, C8<771>, C4<0>, C4<0>, C4<0>;
+L_0x12861e6f0 .functor NAND 1, L_0x12861e660, L_0x12861ea90, L_0x12861eb70, C4<1>;
+L_0x12861e5d0 .functor BUFT 1, C8<770>, C4<0>, C4<0>, C4<0>;
+L_0x12861e820 .functor XOR 1, L_0x12861ec90, L_0x12861e5d0, C4<0>, C4<0>;
+L_0x12861e930 .functor AND 1, L_0x12861e6f0, L_0x12861e820, C4<1>, C4<1>;
+v0x12860ea70_0 .net "A", 0 0, L_0x12861ea90;  1 drivers
+v0x12861df80_0 .net "B", 0 0, L_0x12861eb70;  1 drivers
+v0x12861e020_0 .net "C", 0 0, L_0x12861ec90;  1 drivers
+v0x12861e0d0_0 .net "f", 0 0, L_0x12861e930;  alias, 1 drivers
+v0x12861e170_0 .net8 "gnd", 0 0, L_0x12861e5d0;  1 drivers, strength-aware
+v0x12861e250_0 .net "t1", 0 0, L_0x12861e6f0;  1 drivers
+v0x12861e2f0_0 .net "t2", 0 0, L_0x12861e820;  1 drivers
+v0x12861e390_0 .net8 "vdd", 0 0, L_0x12861e660;  1 drivers, strength-aware
+    .scope S_0x128608f20;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "supply_wire.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x128608f20 {0 0 0};
+    %vpi_call 2 12 "$monitor", v0x12861e530_0, v0x12861e470_0 {0 0 0};
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 2, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 3, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 4, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 5, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 6, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %pushi/vec4 7, 0, 3;
+    %store/vec4 v0x12861e470_0, 0, 3;
+    %delay 5, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "supply_wire_tb.v";
+    "supply_wire.v";
